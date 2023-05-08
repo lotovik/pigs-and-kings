@@ -13,7 +13,7 @@ func _on_start_button_pressed():
 	get_tree().change_scene_to_file(start_scene_path)
 
 func _on_continue_button_pressed():
-	get_tree().change_scene_to_file(save_file_path)
+	get_tree().change_scene_to_file(FileAccess.get_file_as_string(save_file_path))
 
 func _on_quit_button_pressed():
 	get_tree().quit()
