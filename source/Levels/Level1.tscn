@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bq5pmn2ugfd2m"]
+[gd_scene load_steps=33 format=3 uid="uid://bq5pmn2ugfd2m"]
 
 [ext_resource type="Script" path="res://Levels/Level.gd" id="1_2hatn"]
 [ext_resource type="TileSet" uid="uid://c0ikw2a5usjmh" path="res://Levels/Tileset.tres" id="1_y787n"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dln58hdvjoj6q" path="res://Assets/Kings and Pigs/08-Box/Idle.png" id="3_0j31q"]
 [ext_resource type="PackedScene" path="res://Objects/MovingPlatform/MovingPlatform2D.tscn" id="4_314wq"]
 [ext_resource type="PackedScene" uid="uid://chmltmnerl8y6" path="res://Actors/KingPig/KingPigPlayer2D.tscn" id="5_pl4bd"]
+[ext_resource type="PackedScene" uid="uid://u0t3rso77l5s" path="res://Interface/SaveMenu/SaveMenu.tscn" id="7_g6wl4"]
 
 [sub_resource type="Animation" id="Animation_oitd5"]
 length = 0.001
@@ -273,6 +274,33 @@ _data = {
 "move": SubResource("Animation_y48of")
 }
 
+[sub_resource type="Animation" id="Animation_x0s7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_vv5uy"]
 resource_name = "fade_in"
 length = 0.1
@@ -299,33 +327,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_x0s7p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_2llod"]
@@ -567,3 +568,5 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_dqhld")
 }
+
+[node name="SaveMenu" parent="Overlay" instance=ExtResource("7_g6wl4")]

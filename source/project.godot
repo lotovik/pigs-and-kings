@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Pigs & Kings - Lotovik"
 config/description="Um projeto feito para entender, contextualizar e aplicar os conhecimentos das nossas consultorias."
+run/main_scene="res://Screens/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 

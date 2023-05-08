@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmaxyp8vqeeyo"]
+[gd_scene load_steps=12 format=3 uid="uid://dmaxyp8vqeeyo"]
 
 [ext_resource type="Script" path="res://Levels/Level.gd" id="1_hf0ht"]
 [ext_resource type="TileSet" uid="uid://c0ikw2a5usjmh" path="res://Levels/Tileset.tres" id="1_mafgk"]
@@ -6,6 +6,34 @@
 [ext_resource type="PackedScene" path="res://Objects/Crate/Crate.tscn" id="3_si3xb"]
 [ext_resource type="PackedScene" uid="uid://chmltmnerl8y6" path="res://Actors/KingPig/KingPigPlayer2D.tscn" id="4_jsbc5"]
 [ext_resource type="PackedScene" path="res://Actors/Pigsant/Pigsant.tscn" id="6_hqpje"]
+[ext_resource type="PackedScene" uid="uid://u0t3rso77l5s" path="res://Interface/SaveMenu/SaveMenu.tscn" id="7_owvhe"]
+
+[sub_resource type="Animation" id="Animation_x0s7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_vv5uy"]
 resource_name = "fade_in"
@@ -33,33 +61,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_x0s7p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_2llod"]
@@ -181,3 +182,5 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_dqhld")
 }
+
+[node name="SaveMenu" parent="." instance=ExtResource("7_owvhe")]
