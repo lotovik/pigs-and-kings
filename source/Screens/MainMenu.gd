@@ -1,12 +1,19 @@
 extends Control
 
 @export_file("*.tscn") var start_scene_path = "res://Levels/Level1.tscn"
-var save_file_path : String = "user://saves/save_01.sav"
+
+var directory_size : int = 0
+var user_folder_path : String = "user://"
+var save_file_path : String = ""
 
 func _ready():
+	var dir_access : DirAccess = DirAccess.open(user_folder_path)
+	directory_size = dir_access.get_directories().size()
+	save_file_path = "user://save_%s/save.sav" % (directory_size - 2) #Gambiarra!
+	
 	$StartButton.grab_focus()
 	
-	if FileAccess.file_exists(save_file_path):
+	if directory_size >= 2:
 		$ContinueButton.disabled = false
 
 func _on_start_button_pressed():

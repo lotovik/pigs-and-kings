@@ -5,6 +5,5 @@ extends Node2D
 func explode():
 	animator.play("explode")
 
-
 func _on_vision_area_2d_area_entered(area):
 	explode()
