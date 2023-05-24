@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=21 format=3 uid="uid://7cntnqrmb7au"]
 
 [ext_resource type="Texture2D" uid="uid://dln58hdvjoj6q" path="res://Assets/Kings and Pigs/08-Box/Idle.png" id="1_78fl8"]
 [ext_resource type="Script" path="res://Objects/Crate/Crate.gd" id="1_wpdqv"]
@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://d1hskwupnd6vy" path="res://Assets/Kings and Pigs/08-Box/Box Pieces 1.png" id="4_bjhnp"]
 [ext_resource type="Texture2D" uid="uid://c8m2s1o5dhnbq" path="res://Assets/Kings and Pigs/08-Box/Box Pieces 4.png" id="5_dgd0t"]
 [ext_resource type="Texture2D" uid="uid://co4ia3maub7c4" path="res://Assets/Kings and Pigs/08-Box/Hit.png" id="6_fclpq"]
-[ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://Recipes/Platformer/04.hazard/HurtArea2D.tscn" id="7_hcoux"]
+[ext_resource type="PackedScene" path="res://Recipes/Platformer/04.hazard/HurtArea2D.tscn" id="7_hcoux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1tif"]
+size = Vector2(80, 64)
 
 [sub_resource type="Animation" id="Animation_1y5yv"]
 length = 0.001
@@ -90,6 +93,18 @@ tracks/6/path = NodePath("HurtBox2D/CollisionShape2D:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -186,6 +201,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_7vwhq"]
 resource_name = "hit"
@@ -221,9 +248,6 @@ _data = {
 "break": SubResource("Animation_s3mjd"),
 "hit": SubResource("Animation_7vwhq")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1tif"]
-size = Vector2(80, 64)
 
 [sub_resource type="Gradient" id="Gradient_qqlcy"]
 offsets = PackedFloat32Array(0.643979, 1)
@@ -269,8 +293,16 @@ scale_min = 4.0
 scale_max = 4.0
 color_ramp = SubResource("GradientTexture1D_hgygq")
 
-[node name="Crate" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trlxn"]
+size = Vector2(80, 10)
+
+[node name="Crate" type="CharacterBody2D" groups=["Crates"]]
 script = ExtResource("1_wpdqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_u1tif")
+one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
@@ -325,4 +357,11 @@ texture = ExtResource("2_awegd")
 lifetime = 0.5
 one_shot = true
 
+[node name="CrateCheckerArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrateCheckerArea2D"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_trlxn")
+
 [connection signal="hurt" from="HurtBox2D" to="." method="_on_hurt_box_2d_hurt"]
+[connection signal="body_exited" from="CrateCheckerArea2D" to="." method="_on_crate_checker_area_2d_body_exited"]

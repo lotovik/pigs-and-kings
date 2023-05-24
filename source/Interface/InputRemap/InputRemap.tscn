@@ -1,0 +1,217 @@
+[gd_scene load_steps=16 format=3 uid="uid://cwqrdhx25jfox"]
+
+[ext_resource type="Script" path="res://Interface/InputRemap/InputRemap.gd" id="1_0dvbk"]
+[ext_resource type="FontFile" uid="uid://fbxdyn186ebu" path="res://Interface/Fonts/Kenney Thick.ttf" id="2_k43wf"]
+[ext_resource type="PackedScene" uid="uid://cie0d61lvqb1v" path="res://Interface/InputRemap/InputRemapButton.tscn" id="2_w6h4d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ucww"]
+font = ExtResource("2_k43wf")
+font_size = 80
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rnna"]
+bg_color = Color(0.945098, 0.509804, 0.419608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgh7e"]
+bg_color = Color(0.988235, 0.615686, 0.494118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sher0"]
+bg_color = Color(0.890196, 0.301961, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtqfr"]
+bg_color = Color(0.94902, 0.545098, 0.458824, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5o1mo"]
+font = ExtResource("2_k43wf")
+font_size = 32
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_317fx"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_188ci"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_w8tev"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_a524d"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_wevi6"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_a0qme"]
+
+[node name="InputRemap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0dvbk")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.219608, 0.317647, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = 168.0
+offset_right = 66.0
+offset_bottom = 194.0
+grow_horizontal = 2
+text = "Input Keybinding"
+label_settings = SubResource("LabelSettings_3ucww")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -144.0
+offset_right = 140.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("2_k43wf")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_3rnna")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cgh7e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sher0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qtqfr")
+text = "Back"
+
+[node name="RemappingControl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -212.0
+offset_right = 384.0
+offset_bottom = 364.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RemapLabel" type="Label" parent="RemappingControl"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 36.0
+offset_right = 350.0
+offset_bottom = 75.0
+text = "Move left"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/RemapLabel" instance=ExtResource("2_w6h4d")]
+layout_mode = 0
+offset_left = 344.0
+offset_top = -16.0
+offset_right = 504.0
+offset_bottom = 48.0
+button_group = SubResource("ButtonGroup_317fx")
+
+[node name="RemapLabel2" type="Label" parent="RemappingControl"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 124.0
+offset_right = 378.0
+offset_bottom = 163.0
+text = "Move right"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/RemapLabel2" instance=ExtResource("2_w6h4d")]
+layout_mode = 0
+offset_left = 344.0
+offset_top = -16.0
+offset_right = 504.0
+offset_bottom = 48.0
+button_group = SubResource("ButtonGroup_188ci")
+binding_action = "move_right"
+
+[node name="RemapLabel3" type="Label" parent="RemappingControl"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 220.0
+offset_right = 378.0
+offset_bottom = 259.0
+text = "Jump"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/RemapLabel3" instance=ExtResource("2_w6h4d")]
+layout_mode = 0
+offset_left = 344.0
+offset_top = -16.0
+offset_right = 504.0
+offset_bottom = 48.0
+button_group = SubResource("ButtonGroup_w8tev")
+binding_action = "jump"
+
+[node name="RemapLabel4" type="Label" parent="RemappingControl"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 316.0
+offset_right = 378.0
+offset_bottom = 355.0
+text = "Down"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/RemapLabel4" instance=ExtResource("2_w6h4d")]
+layout_mode = 0
+offset_left = 344.0
+offset_top = -16.0
+offset_right = 504.0
+offset_bottom = 48.0
+button_group = SubResource("ButtonGroup_a524d")
+binding_action = "move_down"
+
+[node name="RemapLabel5" type="Label" parent="RemappingControl"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 412.0
+offset_right = 378.0
+offset_bottom = 451.0
+text = "Interact"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/RemapLabel5" instance=ExtResource("2_w6h4d")]
+layout_mode = 0
+offset_left = 344.0
+offset_top = -16.0
+offset_right = 504.0
+offset_bottom = 48.0
+button_group = SubResource("ButtonGroup_wevi6")
+binding_action = "interact"
+
+[node name="RemapLabel6" type="Label" parent="RemappingControl"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 504.0
+offset_right = 378.0
+offset_bottom = 543.0
+text = "Attack"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/RemapLabel6" instance=ExtResource("2_w6h4d")]
+layout_mode = 0
+offset_left = 344.0
+offset_top = -16.0
+offset_right = 504.0
+offset_bottom = 48.0
+button_group = SubResource("ButtonGroup_a0qme")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

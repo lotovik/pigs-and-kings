@@ -1,6 +1,7 @@
 extends Control
 
 @export_file("*.tscn") var start_scene_path = "res://Levels/Level1.tscn"
+@export_file("*.tscn") var controls_scene_path = "res://Interface/InputRemap/InputRemap.tscn"
 
 var directory_size : int = 0
 var user_folder_path : String = "user://"
@@ -24,3 +25,7 @@ func _on_continue_button_pressed():
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+
+func _on_controls_button_pressed():
+	get_tree().change_scene_to_file(controls_scene_path)

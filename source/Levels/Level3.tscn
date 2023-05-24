@@ -3,11 +3,38 @@
 [ext_resource type="Script" path="res://Levels/Level.gd" id="1_lqcga"]
 [ext_resource type="TileSet" uid="uid://c0ikw2a5usjmh" path="res://Levels/Tileset.tres" id="1_opmu0"]
 [ext_resource type="PackedScene" path="res://Objects/Door/Door.tscn" id="2_tl670"]
-[ext_resource type="PackedScene" path="res://Objects/Crate/Crate.tscn" id="3_3mceq"]
+[ext_resource type="PackedScene" uid="uid://7cntnqrmb7au" path="res://Objects/Crate/Crate.tscn" id="3_3mceq"]
 [ext_resource type="PackedScene" path="res://Actors/CratePig/CratePig.tscn" id="5_nboki"]
 [ext_resource type="PackedScene" path="res://Actors/KamikazePig/KamikazePig.tscn" id="6_bwcrm"]
 [ext_resource type="PackedScene" uid="uid://chmltmnerl8y6" path="res://Actors/KingPig/KingPigPlayer2D.tscn" id="7_u3hyf"]
 [ext_resource type="PackedScene" uid="uid://u0t3rso77l5s" path="res://Interface/SaveMenu/SaveMenu.tscn" id="8_ujmq6"]
+
+[sub_resource type="Animation" id="Animation_x0s7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_x0s7p"]
 length = 0.001
@@ -168,6 +195,8 @@ position = Vector2(1304, 616)
 
 [node name="PlayerCharacter2D" parent="." instance=ExtResource("7_u3hyf")]
 position = Vector2(432, 496)
+attack_action = "attack_%s"
+player_index = 0
 
 [node name="CameraRemoteTransform2D" type="RemoteTransform2D" parent="PlayerCharacter2D"]
 remote_path = NodePath("../../Camera2D")

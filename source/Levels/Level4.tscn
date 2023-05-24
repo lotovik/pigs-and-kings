@@ -296,6 +296,8 @@ libraries = {
 
 [node name="PlayerCharacter2D" parent="." instance=ExtResource("5_waf25")]
 position = Vector2(1256, 832)
+attack_action = "attack_%s"
+player_index = 0
 jump_strength = 850.0
 
 [node name="CameraRemoteTransform2D" type="RemoteTransform2D" parent="PlayerCharacter2D"]
