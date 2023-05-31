@@ -240,9 +240,13 @@ layer_3/tile_data = PackedInt32Array(-131063, 262146, 1, -131064, 196610, 1, -13
 
 [node name="Door" parent="." instance=ExtResource("2_7ihn2")]
 position = Vector2(1264, 896)
+next_scene_path = "res://Levels/Level3.tscn"
+target_portal_name = "Door"
 
 [node name="Door2" parent="." instance=ExtResource("2_7ihn2")]
 position = Vector2(584, -768)
+next_scene_path = "res://Levels/Level1.tscn"
+target_portal_name = "Door"
 
 [node name="MovingPlatforms" type="Node2D" parent="."]
 
@@ -296,8 +300,6 @@ libraries = {
 
 [node name="PlayerCharacter2D" parent="." instance=ExtResource("5_waf25")]
 position = Vector2(1256, 832)
-attack_action = "attack_%s"
-player_index = 0
 jump_strength = 850.0
 
 [node name="CameraRemoteTransform2D" type="RemoteTransform2D" parent="PlayerCharacter2D"]

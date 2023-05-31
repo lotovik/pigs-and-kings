@@ -5,6 +5,7 @@ extends Control
 
 var directory_size : int = 0
 var user_folder_path : String = "user://"
+var user_settings_path : String = "user://user_settings.config"
 var save_file_path : String = ""
 
 func _ready():
@@ -17,11 +18,30 @@ func _ready():
 	if directory_size >= 2:
 		$ContinueButton.disabled = false
 
+
+func load_input_settings() -> void:
+	
+	if not FileAccess.file_exists(user_settings_path):
+		return
+	
+	var file_access : FileAccess = FileAccess.open(user_settings_path, FileAccess.READ)
+	#print(file_access.get_buffer(file_access.get_length()))
+	var remap_dictionary : Dictionary = JSON.parse_string(file_access.get_as_text())
+	
+	for action in remap_dictionary.keys():
+		InputMap.action_erase_events(action)
+		var event : InputEventKey = InputEventKey.new()
+		event.physical_keycode = remap_dictionary[action]
+		InputMap.action_add_event(action, event)
+
+
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file(start_scene_path)
 
+
 func _on_continue_button_pressed():
 	get_tree().change_scene_to_file(FileAccess.get_file_as_string(save_file_path))
+
 
 func _on_quit_button_pressed():
 	get_tree().quit()

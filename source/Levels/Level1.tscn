@@ -325,8 +325,6 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
@@ -398,6 +396,8 @@ layer_3/tile_data = PackedInt32Array(524311, 131074, 1, 524312, 196610, 1, 52431
 
 [node name="Door" parent="." instance=ExtResource("2_v5jln")]
 position = Vector2(3848, 384)
+next_scene_path = "res://Levels/Level2.tscn"
+target_portal_name = "Door"
 
 [node name="Boxes" type="Node2D" parent="."]
 

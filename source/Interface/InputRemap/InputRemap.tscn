@@ -29,17 +29,17 @@ border_color = Color(1, 1, 1, 1)
 font = ExtResource("2_k43wf")
 font_size = 32
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_317fx"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_eyrle"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_188ci"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_x0e30"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_w8tev"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_3gp4e"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_a524d"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_af7lh"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_wevi6"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_k3o43"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_a0qme"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_pt58a"]
 
 [node name="InputRemap" type="Control"]
 layout_mode = 3
@@ -123,7 +123,7 @@ offset_left = 344.0
 offset_top = -16.0
 offset_right = 504.0
 offset_bottom = 48.0
-button_group = SubResource("ButtonGroup_317fx")
+button_group = SubResource("ButtonGroup_eyrle")
 
 [node name="RemapLabel2" type="Label" parent="RemappingControl"]
 layout_mode = 0
@@ -140,7 +140,7 @@ offset_left = 344.0
 offset_top = -16.0
 offset_right = 504.0
 offset_bottom = 48.0
-button_group = SubResource("ButtonGroup_188ci")
+button_group = SubResource("ButtonGroup_x0e30")
 binding_action = "move_right"
 
 [node name="RemapLabel3" type="Label" parent="RemappingControl"]
@@ -158,7 +158,7 @@ offset_left = 344.0
 offset_top = -16.0
 offset_right = 504.0
 offset_bottom = 48.0
-button_group = SubResource("ButtonGroup_w8tev")
+button_group = SubResource("ButtonGroup_3gp4e")
 binding_action = "jump"
 
 [node name="RemapLabel4" type="Label" parent="RemappingControl"]
@@ -176,7 +176,7 @@ offset_left = 344.0
 offset_top = -16.0
 offset_right = 504.0
 offset_bottom = 48.0
-button_group = SubResource("ButtonGroup_a524d")
+button_group = SubResource("ButtonGroup_af7lh")
 binding_action = "move_down"
 
 [node name="RemapLabel5" type="Label" parent="RemappingControl"]
@@ -194,7 +194,7 @@ offset_left = 344.0
 offset_top = -16.0
 offset_right = 504.0
 offset_bottom = 48.0
-button_group = SubResource("ButtonGroup_wevi6")
+button_group = SubResource("ButtonGroup_k3o43")
 binding_action = "interact"
 
 [node name="RemapLabel6" type="Label" parent="RemappingControl"]
@@ -212,6 +212,6 @@ offset_left = 344.0
 offset_top = -16.0
 offset_right = 504.0
 offset_bottom = 48.0
-button_group = SubResource("ButtonGroup_a0qme")
+button_group = SubResource("ButtonGroup_pt58a")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

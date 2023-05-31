@@ -17,3 +17,4 @@ func _gui_input(event):
 		text = event.as_text_physical_keycode()
 		release_focus()
 		button_pressed = false
+		get_viewport().set_input_as_handled()
